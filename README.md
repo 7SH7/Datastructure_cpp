@@ -1,4 +1,4 @@
 # nowicx
 
-#데구_수업용
-##repository
+# 데구_수업용
+## repository
