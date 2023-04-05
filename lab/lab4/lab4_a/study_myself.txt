@@ -1,0 +1,4 @@
+컴파일 할 때, ifdef DEBUG 로 들어가려면...
+gcc -DDEBUG main.c -o hi
+./hi
+이렇게 들어가야 함.
