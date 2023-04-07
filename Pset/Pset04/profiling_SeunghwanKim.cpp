@@ -1,5 +1,6 @@
 // 아너코드: On my honor, I pledge that I have neither received nor provided improper assistance in the completion of this assignment.
-// Signed: Kim Seunghwan  분반: ECE20010  Student Number: 22000116// Topic: Performance Analysis - profiling
+// Signed: Kim Seunghwan  분반: ECE20010  Student Number: 22000116
+// Topic: Performance Analysis - profiling
 //
 // Description:	This program profiles the complexity of sorting algorithms.
 // It uses a for loop to control the size of the array. At each iteration,
