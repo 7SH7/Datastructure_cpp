@@ -53,29 +53,53 @@ void push(stack<T> s, T item)
     // your code here
     s->item.push_back(item);
 
-    cout << "push - size : " << s->item.size() << " - capacity : " << s->item.capacity() << endl;
+    // cout << "push - size : " << s->item.size() << " - capacity : " << s->item.capacity() << endl;
 }
 
 template <typename T>
 void printStack(stack<T> s)
 {
-    while (!empty(s))
-    {
-        cout << top(s) << ' ';
-        pop(s);
-    } // stack is empty now
+    if (empty(s))
+        return;
+
+    // your code here
+    T tmp;
+    tmp = top(s);
+    cout << tmp << ' ';
+    pop(s);
+
+    printStack(s);
+
+    push(s, tmp);
+}
+
+template <typename T>
+void printStack_fromBottom(stack<T> s)
+{
+    if (empty(s))
+        return;
+
+    // your code here
+    T tmp = top(s);
+    pop(s);
+
+    printStack_fromBottom(s);
+
+    cout << tmp << " ";
+
+    push(s, tmp);
 }
 
 int main()
 { // stack initialization using range-based for
-    // int list[] = {1,2,3,4,5,0,6,0,0,7,0,0,0,8};
-    string list[] = {"to", "be", "or", "not", "to", "-", "be", "-", "-", "that", "-", "-", "-", "is"};
+    int list[] = {1, 2, 3, 4, 5, 0, 6, 0, 0, 7, 0, 0, 0, 8};
+    // string list[] = {"to", "be", "or", "not", "to", "-", "be", "-", "-", "that", "-", "-", "-", "is"};
 
-    stack<string> s = new Stack<string>(); // 초기화 필수
+    stack<int> s = new Stack<int>(); // 초기화 필수
 
     for (auto item : list)
     {
-        if (item != "-")
+        if (item != 0)
             push(s, item);
         else
         {
@@ -88,5 +112,7 @@ int main()
     cout << "\ntop: " << top(s);   // is (8)
     cout << "\nstack T: ";
     printStack(s);
+    cout << "\nstack B: ";
+    printStack_fromBottom(s);
     cout << "\nHappy Coding";
 }

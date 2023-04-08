@@ -49,16 +49,40 @@ void push(stack s, string item)
     // your code here
     s->item.push_back(item);
 
-    cout << "push - size : " << s->item.size() << " - capacity : " << s->item.capacity() << endl;
+    // cout << endl
+    //      << "push - size : " << s->item.size() << " - capacity : " << s->item.capacity() << endl;
 }
 
 void printStack(stack s)
 {
-    while (!empty(s))
-    {
-        cout << top(s) << ' ';
-        pop(s);
-    } // stack is empty now
+    if (empty(s))
+        return;
+
+    // your code here
+    string tmp;
+    tmp = top(s);
+    cout << tmp << ' ';
+    pop(s);
+
+    printStack(s);
+
+    push(s, tmp);
+}
+
+void printStack_fromBottom(stack s)
+{
+    if (empty(s))
+        return;
+
+    // your code here
+    string tmp = top(s);
+    pop(s);
+
+    printStack_fromBottom(s);
+
+    cout << tmp << " ";
+
+    push(s, tmp);
 }
 
 int main()
@@ -83,5 +107,7 @@ int main()
     cout << "\ntop: " << top(s);   // is (8)
     cout << "\nstack T: ";
     printStack(s);
+    cout << "\nstack B: ";
+    printStack_fromBottom(s);
     cout << "\nHappy Coding";
 }
