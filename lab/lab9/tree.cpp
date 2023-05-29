@@ -376,7 +376,7 @@ tree trim(tree node, int key)
 		delete node;
 		return nullptr;
 	}
-	else if (node->right)
+	else if (node->right && !node->left)
 	{
 		tree temp = node;
 		node = node->right;
@@ -384,7 +384,7 @@ tree trim(tree node, int key)
 		// delete node;
 		// return node;
 	}
-	else if (node->left)
+	else if (node->left && !node->right)
 	{
 		tree temp = node;
 		node = node->left;
